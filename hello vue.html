@@ -10,9 +10,14 @@
     <h1>hello Vue</h1>
     <label for="name">Please enter your name:</label>
     <input v-model="name" id="name">
-    <p>
-        Your name is {{ name }}
-    </p>
+    
+    <div v-if="name">
+        <p>Your name is {{ name }}</p>
+        <button v-on:click="clearName">Clear input</button>
+    </div>
+    <div v-else>
+        <p>Awaiting user input.</p>
+    </div>
 </div>
 
 <script>
@@ -22,8 +27,13 @@
         setup() {
             const name = ref('');
 
+            const clearName = () => {
+                name.value = '';
+            };
+
             return {
-                name
+                name,
+                clearName
             };
         }
     }).mount('#app');
