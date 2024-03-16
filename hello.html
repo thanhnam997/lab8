@@ -1,35 +1,52 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title> Hello  Vue</title>
-        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-
-    </head>
+<head>
+    <title> Hello Vue</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
 
 <body>
-    <div id="app">
-      <h1>hello Vue</h1>
-      <p>
-        {{ message}}
-      </p>
-    </div>
-    
-    <script>
+<div id="app">
+    <h1>hello Vue</h1>
+    <p>
+        {{ messageWithExclamationPoints }}
+    </p>
 
-  const { createApp,ref} = Vue
-   createApp({
-         setup(){
-            const message=ref('hi')
-            
-            return  {
-                message
-            }
-         }
-   }).mount('#app')
+    <button @click="addExclamation">Add !</button>
+    <button @click="clearExclamationPoints">Clear Exclamation Points</button>
+</div>
 
-    </script>
+<script>
+    const { createApp, ref,computed } = Vue;
 
+    createApp({
+        setup() {
+            const message = ref('hi');
+            const maxExclamations = 10;
+            const exclamationCount = ref(0);
 
+            const addExclamation = () => {
+                if (exclamationCount.value < maxExclamations) {
+                    message.value += '!';
+                    exclamationCount.value++;
+                } else {
+                    alert('No more exclamation points allowed!');
+                }
+            };
 
-    </body>
-    </html>
+            const clearExclamationPoints = () => {
+                message.value = 'hi';
+                exclamationCount.value = 0;
+            };
+
+            return {
+                message,
+                addExclamation,
+                clearExclamationPoints
+            };
+        }
+    }).mount('#app');
+</script>
+
+</body>
+</html>
