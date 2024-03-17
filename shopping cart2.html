@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cart</title>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <style>
+        td, th {
+            width: 25%;
+            text-align: center
+        }
+    </style>
+
+</head>
+<body>
+    <div>
+    <h1>shopping cart</h1>
+<table>
+    <tr><th>Item</th><th>Unit Price</th><th>Quantity</th><th>Total</th></tr>
+<tr>
+<td id="name"></td>
+<td id="unitPrice"></td>
+<td><input type="number" id ="quantity"></td>
+<td  id="total"></td>
+</tr>
+</table>
+</div>
+
+
+
+<script>
+let data = { name: 'Hat', unitPrice: 4.99, quantity: 1}
+
+let nameEl= document. querySelector( '*name')
+let unitPriceEl = document.queryselector( '#unit-price' )
+let quantityInput = document. querySetector( "#quantity")
+let totalEl = document.querySelector( "#total" )
+
+nameEL. innerHTHL = data. name
+unitPriceEl. innerHTML= data. unitPrice
+quantitylnput.value = data.quantity
+
+
+function updateTotat() {
+let total = quantityInput.value * unitPriceEL. innerHTML
+totalEI. innerHTML = total. toFixed(2) // display 2 decimal places
+}
+
+
+quantitylnput. addEventListener( 'input', function() {
+updateTotal( )
+})
+updateTotal()
+
+
+</script>
+
+</body>
+</html>

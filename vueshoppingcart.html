@@ -25,7 +25,7 @@
                 <th>Unit Price</th>
                 <th>Quantity</th>
                 <th>Total</th>
-            </tr> <!-- Close this tr tag -->
+            </tr>
             <tr>
                 <td>{{ name }}</td>
                 <td>${{ unitPrice }}</td>
@@ -46,14 +46,17 @@
             const unitPrice = ref(4.99)
 
             const total = computed(() => {
-                return quantity.value * unitPrice.value
+                const totalPrice = quantity.value * unitPrice.value
+                const formattedPrice = totalPrice.toFixed(2)
+                return formattedPrice
             })
 
             return {
                 name,
                 quantity,
                 unitPrice,
-                total,
+               
+                total
             }
         }
 
