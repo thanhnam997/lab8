@@ -1,19 +1,16 @@
 What does this Vue warning message mean?
 
-Vue warning message mean is The warning message from Vue typically indicates a situation where you are modifying a reactive object outside of Vue's reactivity system. This often occurs when you directly mutate a reactive object property instead of using Vue's reactive methods like ref, reactive, or methods provided by computed properties and watchers.
+This means that you are using a property in the template that doesn’t exist in the Vue data 
+
 
 
 Can you safely ignore it? 
 
-Ignoring such warning messages might seem tempting, especially if your application seems to be functioning as expected. However, it's not recommended to ignore them, as they can indicate potential issues in your code that might lead to unexpected behavior or bugs.
+NO, it's not recommended to ignore them, as they can indicate potential issues in your code that might lead to unexpected behavior or bugs.
 
 
 What causes it, and how do you fix it? 
 
-The warning often arises due to the use of reactive objects within non-reactive contexts, such as modifying data directly within event handlers or lifecycle hooks. To fix this warning, you should ensure that any modifications to reactive data are done within Vue's reactive context.
-Use Vue's reactive properties and methods appropriately, such as ref for primitive values and reactive for objects.
-Avoid directly mutating reactive properties outside of Vue's reactivity system.
+because a function that doesn't exist, or a computed property that doesn't exist, and I will  Fix  define the variable – or check spelling if already defined it and make sure to include it in the return object
 
-Use Vue's lifecycle hooks and composition API setup function to perform reactive operations.
-If you must modify reactive data outside of Vue's reactivity system, ensure that you understand the implications and potential risks, and document such modifications clearly.
-By addressing the warning and following best practices for Vue reactivity, you can ensure a more predictable and maintainable Vue application.
+
